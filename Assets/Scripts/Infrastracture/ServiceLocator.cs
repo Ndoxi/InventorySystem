@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace IS.Infrastracture
 {
+
     public static class ServiceLocator 
     {
         static readonly Dictionary<Type, object> services = new Dictionary<Type, object>();
