@@ -1,3 +1,4 @@
+using IS.Data;
 using System;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,6 +9,7 @@ namespace IS.Core.Views
     {
         public event Action exitRequested;
 
+        [SerializeField] ShopGridView _shopGridView;
         [SerializeField] private Button _exitButton;
 
         private void OnEnable()
@@ -18,6 +20,11 @@ namespace IS.Core.Views
         private void OnDisable()
         {
             _exitButton.onClick.RemoveListener(CloseView);
+        }
+
+        public void Init(ShopItemData[] datas)
+        {
+            _shopGridView.Init(datas);
         }
 
         private void CloseView()

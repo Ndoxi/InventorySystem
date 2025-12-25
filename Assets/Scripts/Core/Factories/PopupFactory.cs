@@ -17,7 +17,7 @@ namespace IS.Core.Factories
         {
             _canvas = canvas;
             var config = ServiceLocator.Resolve<IConfigProvider>().Get<PopupFactoryConfig>();
-            _prefabs = new Dictionary<Type, Popup>(config.prefabs.Count);
+            _prefabs = new Dictionary<Type, Popup>(config.prefabs.Length);
 
             foreach (var prefab in config.prefabs)
             {

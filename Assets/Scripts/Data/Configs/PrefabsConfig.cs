@@ -3,9 +3,9 @@ using UnityEngine;
 
 namespace IS.Data.Configs
 {
-    public class PrefabsConfig<T> : ScriptableObject where T : MonoBehaviour
+    public class PrefabsConfig<T> : ScriptableObject where T : Object
     {
-        public List<T> prefabs => _prefabs;
-        [SerializeField] private List<T> _prefabs;
+        public T[] prefabs => _prefabs;
+        [SerializeField] private T[] _prefabs;
     }
 }

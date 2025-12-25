@@ -264,6 +264,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80f214285cb24314e8455cda7cbef28c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _shopGridView: {fileID: 2734643275061266933}
   _exitButton: {fileID: 7641096259556365628}
 --- !u!114 &4210369683396305851
 MonoBehaviour:
@@ -499,6 +500,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a8372defd4b84d048a277b89c79137c5, type: 3}
+--- !u!114 &2734643275061266933 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3535015901064451222, guid: a8372defd4b84d048a277b89c79137c5, type: 3}
+  m_PrefabInstance: {fileID: 1512507619011321187}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abd7f159c4d61d844bad6e30a035fafd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &6867756246671153690 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5454609295552284537, guid: a8372defd4b84d048a277b89c79137c5, type: 3}
