@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace IS.Core.Views
 {
-    public abstract class View : MonoBehaviour, IView
+    public abstract class View : MonoBehaviour, IPanel
     {
         public virtual void Show()
         {

@@ -4,7 +4,6 @@ using UnityEngine;
 
 namespace IS.Infrastracture
 {
-
     public static class ServiceLocator 
     {
         static readonly Dictionary<Type, object> services = new Dictionary<Type, object>();
@@ -35,13 +34,19 @@ namespace IS.Infrastracture
             }
         }
 
-        public static void Unregister<T>() where T : class
+        public static void Unregister<T>(bool dispose = true) where T : class
         {
             var type = typeof(T);
-            if (services.ContainsKey(type))
+            if (services.TryGetValue(type, out object service))
+            {
+                if (dispose && service is IDisposable disposable)
+                    disposable.Dispose();
                 services.Remove(type);
+            }
             else
+            {
                 Debug.LogWarning($"Attempted to unregister service of type {type.FullName} but it was not registered.");
+            }
         }
     }
 }

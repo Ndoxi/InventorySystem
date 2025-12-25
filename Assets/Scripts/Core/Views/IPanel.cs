@@ -1,6 +1,6 @@
 namespace IS.Core.Views
 {
-    public interface IView
+    public interface IPanel
     {
         void Show();
         void Hide();

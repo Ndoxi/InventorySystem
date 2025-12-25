@@ -3,22 +3,21 @@ using IS.Data.Configs;
 using IS.Infrastracture;
 using System;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 namespace IS.Core.Factories
 {
-    public class ViewFactory : UIFactory<View>
+    public class PopupFactory : UIFactory<Popup>
     {
         protected override Canvas _canvas { get; }
 
-        private readonly Dictionary<Type, View> _prefabs;
+        private readonly Dictionary<Type, Popup> _prefabs;
 
-        public ViewFactory(Canvas canvas) 
+        public PopupFactory(Canvas canvas)
         {
             _canvas = canvas;
-            var config = ServiceLocator.Resolve<IConfigProvider>().Get<ViewFactoryConfig>();
-            _prefabs = new Dictionary<Type, View>(config.prefabs.Count);
+            var config = ServiceLocator.Resolve<IConfigProvider>().Get<PopupFactoryConfig>();
+            _prefabs = new Dictionary<Type, Popup>(config.prefabs.Count);
 
             foreach (var prefab in config.prefabs)
             {

@@ -5,10 +5,11 @@ namespace IS.Infrastracture
     public class MainSceneInstaller : SceneInstaller, IContextInitializer
     {
         [SerializeField] private Canvas _viewCanvas;
+        [SerializeField] private Canvas _popupCanvas;
 
         public void Run()
         {
-            InstallContext(new MainSceneContext(_viewCanvas));
+            InstallContext(new MainSceneContext(_viewCanvas, _popupCanvas));
         }
     }
 }

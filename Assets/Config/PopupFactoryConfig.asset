@@ -9,9 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1fe11f1b2e794a847b8052bd219221e3, type: 3}
-  m_Name: ScriptableObjectsProviderConfig
+  m_Script: {fileID: 11500000, guid: 31792e5fbff4be54fae0332514c57cd4, type: 3}
+  m_Name: PopupFactoryConfig
   m_EditorClassIdentifier: 
-  _configs:
-  - {fileID: 11400000, guid: 608c11e9c102a5d4a94acf0eb487786e, type: 2}
-  - {fileID: 11400000, guid: 7f69780aa8677de48bb42308564f1a08, type: 2}
+  _prefabs: []
