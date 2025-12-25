@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 namespace IS.Core.Views
 {
-    public class InventoryItemView : ItemView<IItemData>
+    public class InventoryItemView : ItemView<ItemData>
     {
         [SerializeField] private Button _useButton;
 

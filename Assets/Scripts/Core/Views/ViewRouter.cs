@@ -8,17 +8,19 @@ namespace IS.Core.Views
     public class ViewRouter : IViewRouter
     {
         private readonly Dictionary<Type, View> _viewPool = new();
-        private readonly IItemViewFactory<View> _factory;
+        private readonly IViewFactory<View> _factory;
 
         public ViewRouter() 
         {
-            _factory = ServiceLocator.Resolve<IItemViewFactory<View>>();
+            _factory = ServiceLocator.Resolve<IViewFactory<View>>();
         }
 
         public T Open<T>() where T : View
         {
             var view = GetOrCreate<T>();
             view.Show();
+            view.transform.SetAsLastSibling();
+
             return view;
         }
 

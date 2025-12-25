@@ -2,7 +2,6 @@ using IS.Core.Factories;
 using IS.Infrastracture;
 using System;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -23,14 +22,14 @@ namespace IS.Core.Views
     public class PopupRouter : IPopupRouter, IDisposable
     {
         private readonly Canvas _canvas;
-        private readonly IItemViewFactory<Popup> _popupFactory;
+        private readonly IViewFactory<Popup> _popupFactory;
         private readonly List<Popup> _popups = new ();
         private Button _blocker;
 
         public PopupRouter(Canvas canvas)
         {
             _canvas = canvas;
-            _popupFactory = ServiceLocator.Resolve<IItemViewFactory<Popup>>();
+            _popupFactory = ServiceLocator.Resolve<IViewFactory<Popup>>();
         }
 
         public T Open<T>() where T : Popup
@@ -60,7 +59,11 @@ namespace IS.Core.Views
 
         public void Dispose()
         {
-            _blocker.onClick.RemoveListener(CloseTopPopup);
+            if (_blocker != null)
+            {
+                _blocker.onClick.RemoveListener(CloseTopPopup);
+                UnityEngine.Object.Destroy(_blocker);
+            }
         }
 
         private void CloseTopPopup()

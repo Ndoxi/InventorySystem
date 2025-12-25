@@ -10,20 +10,4 @@ namespace IS.Core.Factories
     {
         T Create<T>(TData data, Transform parent) where T : TItem;
     }
-
-    public class ItemFactory : IItemViewFactory<ItemView<ItemData>, ItemData>
-    {
-        public T Create<T>(ItemData data, Transform parent) where T : ItemView<ItemData>
-        {
-            throw new System.NotImplementedException();
-        }
-    }
-
-    public class ShopItemFactory : IItemViewFactory<ItemView<ShopItemData>, ShopItemData>
-    {
-        public T Create<T>(ShopItemData data, Transform parent) where T : ItemView<ShopItemData>
-        {
-            throw new System.NotImplementedException();
-        }
-    }
 }

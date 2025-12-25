@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace IS.Core.Factories
 {
-    public abstract class UIFactory<TItem> : IItemViewFactory<TItem> where TItem : MonoBehaviour
+    public abstract class UIFactory<TItem> : IViewFactory<TItem> where TItem : MonoBehaviour
     {
         protected abstract Canvas _canvas { get; }
 
@@ -11,7 +11,7 @@ namespace IS.Core.Factories
         {
             var prefab = GetPrefabOrDefault<T>();
             if (prefab == null)
-                throw new Exception($"Prefab of type {typeof(T)} is not registered in ViewFactory");
+                throw new Exception($"Prefab of type {typeof(T)} is not registered in {GetType()}");
             return UnityEngine.Object.Instantiate(prefab, _canvas.transform);
         }
 
