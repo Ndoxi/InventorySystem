@@ -23,14 +23,14 @@ namespace IS.Core.Views
     public class PopupRouter : IPopupRouter, IDisposable
     {
         private readonly Canvas _canvas;
-        private readonly IFactory<Popup> _popupFactory;
+        private readonly IItemViewFactory<Popup> _popupFactory;
         private readonly List<Popup> _popups = new ();
         private Button _blocker;
 
         public PopupRouter(Canvas canvas)
         {
             _canvas = canvas;
-            _popupFactory = ServiceLocator.Resolve<IFactory<Popup>>();
+            _popupFactory = ServiceLocator.Resolve<IItemViewFactory<Popup>>();
         }
 
         public T Open<T>() where T : Popup

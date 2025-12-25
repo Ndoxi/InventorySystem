@@ -17,16 +17,16 @@ namespace IS.Infrastracture
 
         public void Install()
         {
-            ServiceLocator.Register<IFactory<View>>(new ViewFactory(_viewCanvas));
-            ServiceLocator.Register<IFactory<Popup>>(new PopupFactory(_popupCanvas));
+            ServiceLocator.Register<IItemViewFactory<View>>(new ViewFactory(_viewCanvas));
+            ServiceLocator.Register<IItemViewFactory<Popup>>(new PopupFactory(_popupCanvas));
             ServiceLocator.Register<IViewRouter>(new ViewRouter());
             ServiceLocator.Register<IPopupRouter>(new PopupRouter(_popupCanvas));
         }
 
         public void Uninstall()
         {
-            ServiceLocator.Unregister<IFactory<View>>();
-            ServiceLocator.Unregister<IFactory<Popup>>();
+            ServiceLocator.Unregister<IItemViewFactory<View>>();
+            ServiceLocator.Unregister<IItemViewFactory<Popup>>();
             ServiceLocator.Unregister<IViewRouter>();
             ServiceLocator.Unregister<IPopupRouter>();
         }

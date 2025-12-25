@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace IS.Core.Factories
 {
-    public abstract class UIFactory<TItem> : IFactory<TItem> where TItem : MonoBehaviour
+    public abstract class UIFactory<TItem> : IItemViewFactory<TItem> where TItem : MonoBehaviour
     {
         protected abstract Canvas _canvas { get; }
 

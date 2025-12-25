@@ -8,11 +8,11 @@ namespace IS.Core.Views
     public class ViewRouter : IViewRouter
     {
         private readonly Dictionary<Type, View> _viewPool = new();
-        private readonly IFactory<View> _factory;
+        private readonly IItemViewFactory<View> _factory;
 
         public ViewRouter() 
         {
-            _factory = ServiceLocator.Resolve<IFactory<View>>();
+            _factory = ServiceLocator.Resolve<IItemViewFactory<View>>();
         }
 
         public T Open<T>() where T : View
