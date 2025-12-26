@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace IS.Core.Views
 {
-    public class ShopView : InventoryView
+    public class ShopView : InventoryView<ShopItemData>
     {
         public event Action<IRuntimeItemData<ShopItemData>> buyRequested;
 
@@ -25,6 +25,11 @@ namespace IS.Core.Views
         public override void Init(IRuntimeItemData<ShopItemData>[] datas)
         {
             _shopGridView.Init(datas);
+        }
+
+        public override void Add(IRuntimeItemData<ShopItemData> data)
+        {
+            _shopGridView.Add(data);
         }
 
         public override void Remove(IRuntimeItemData<ShopItemData> data)

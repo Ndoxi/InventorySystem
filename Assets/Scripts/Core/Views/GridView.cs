@@ -13,9 +13,9 @@ namespace IS.Core.Views
         where TData : IItemData
     {
         [SerializeField] private RectTransform _content;
-        private Dictionary<Guid, TView> _views = new ();
+        protected Dictionary<Guid, TView> _views = new ();
         private IItemViewFactory<TView, TData> _factory;
-
+        
         public void Init(IRuntimeItemData<TData>[] datas)
         {
             _factory = ServiceLocator.Resolve<IItemViewFactory<TView, TData>>();
@@ -35,10 +35,15 @@ namespace IS.Core.Views
 
         public void Remove(IRuntimeItemData<TData> data)
         {
-            if (_views.TryGetValue(data.instanceId, out var view))
+            RemoveById(data.instanceId);
+        }
+
+        public void RemoveById(Guid id)
+        {
+            if (_views.TryGetValue(id, out var view))
             {
                 UnregistedView(view);
-                _views.Remove(data.instanceId);
+                _views.Remove(id);
                 Destroy(view.gameObject);
             }
         }

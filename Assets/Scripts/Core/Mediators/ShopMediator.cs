@@ -1,7 +1,9 @@
 using IS.Core.Models;
+using IS.Core.Popups;
 using IS.Core.Views;
 using IS.Data;
 using IS.Infrastracture;
+using IS.Services;
 using System.Linq;
 using UnityEngine;
 
@@ -11,11 +13,15 @@ namespace IS.Core.Mediators
     public class ShopMediator : Mediator<ShopView, ShopModel>
     {
         private IViewRouter _viewRouter;
+        private IPopupRouter _popupRouter;
+        private IInventoryService _inventory;
         private ShopModel _model;
 
         private void Start()
         {
             _viewRouter = ServiceLocator.Resolve<IViewRouter>();
+            _popupRouter = ServiceLocator.Resolve<IPopupRouter>();
+            _inventory = ServiceLocator.Resolve<IInventoryService>();
             _view.Init(_model.items.ToArray());
         }
 
@@ -45,7 +51,10 @@ namespace IS.Core.Mediators
 
         private void OnBuyRequested(IRuntimeItemData<ShopItemData> runtimeItemData)
         {
-            _model.Buy(runtimeItemData);
+            if (_model.Buy(runtimeItemData))
+                _inventory.Add(new RuntimeItemData<ItemData>(runtimeItemData.data.item));
+            else
+                _popupRouter.Open<NotEnoughCurrencyPopup>();
         }
 
         private void OnItemRemoved(IRuntimeItemData<ShopItemData> runtimeItemData)

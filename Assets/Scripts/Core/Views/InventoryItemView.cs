@@ -1,4 +1,5 @@
 using IS.Data;
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -6,6 +7,8 @@ namespace IS.Core.Views
 {
     public class InventoryItemView : ItemView<ItemData>
     {
+        public event Action<IRuntimeItemData<ItemData>> useRequested;
+
         [SerializeField] private Button _useButton;
 
         private void OnEnable()
@@ -20,7 +23,7 @@ namespace IS.Core.Views
 
         private void RequestUse()
         {
-            Debug.Log($"Request to use item: {_runtimeData.data.itemName}");
+            useRequested?.Invoke(_runtimeData);
         }
     }
 }

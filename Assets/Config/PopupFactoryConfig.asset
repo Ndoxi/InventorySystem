@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31792e5fbff4be54fae0332514c57cd4, type: 3}
   m_Name: PopupFactoryConfig
   m_EditorClassIdentifier: 
-  _prefabs: []
+  _items:
+  - {fileID: 7250814946273842622, guid: fdd1673db09c09347921ee9e8704deaa, type: 3}

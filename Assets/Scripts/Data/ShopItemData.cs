@@ -7,6 +7,7 @@ namespace IS.Data
     [CreateAssetMenu(fileName = "ShopItemData", menuName = "Scriptable Objects/Data/ShopItemData")]
     public class ShopItemData : ScriptableObject, IItemData
     {
+        public ItemData item => _item;
         public string itemName => _item.itemName;
         public Sprite icon => _item.icon;
         public string description => _item.description;

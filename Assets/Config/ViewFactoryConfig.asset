@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f950906a718275e4d89fee67e4701c96, type: 3}
   m_Name: ViewFactoryConfig
   m_EditorClassIdentifier: 
-  _prefabs:
+  _items:
   - {fileID: 8184077808268591666, guid: 8ade56c0dd3da324284c041621639cb2, type: 3}
+  - {fileID: 6621296171762088696, guid: aef4525029c8ae7409ec2b6bae25eed5, type: 3}

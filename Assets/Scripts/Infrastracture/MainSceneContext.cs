@@ -3,6 +3,7 @@ using IS.Core.Models;
 using IS.Core.Views;
 using IS.Data;
 using IS.Data.Configs;
+using IS.Services;
 using System;
 using UnityEngine;
 
@@ -21,9 +22,15 @@ namespace IS.Infrastracture
 
         public void Install()
         {
+            InstallServices();
             InstallFactories();
             InstallRouters();
             InstallModels();
+        }
+
+        private void InstallServices()
+        {
+            ServiceLocator.Register<IInventoryService>(new PlayerInventoryModel());
         }
 
         private void InstallFactories()
@@ -47,6 +54,7 @@ namespace IS.Infrastracture
 
         public void Uninstall()
         {
+            ServiceLocator.Unregister<IInventoryService>();
             ServiceLocator.Unregister<IItemViewFactory<InventoryItemView, ItemData>>();
             ServiceLocator.Unregister<IItemViewFactory<ShopItemView, ShopItemData>>();
             ServiceLocator.Unregister<IViewFactory<View>>();

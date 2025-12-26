@@ -7,7 +7,7 @@ namespace IS.Core.Models
         public event Action<int> updated;
         public int amount => _amount;
 
-        private int _amount;
+        private int _amount = 100;
 
         public void Add(int amount)
         {

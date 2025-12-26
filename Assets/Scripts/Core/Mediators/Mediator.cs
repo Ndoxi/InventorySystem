@@ -21,7 +21,7 @@ namespace IS.Core.Mediators
     {
         protected TView _view;
 
-        private void Awake()
+        protected virtual void Awake()
         {
             _view = GetComponent<TView>();
 
