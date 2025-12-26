@@ -13,6 +13,6 @@ namespace IS.Data
         [SerializeField] private Sprite _icon;
         [SerializeField] private string _description;
 
-        public abstract IItem ToRuntime();
+        public abstract IItem ToRuntimeItem();
     }
 }

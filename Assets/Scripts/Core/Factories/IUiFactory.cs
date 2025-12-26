@@ -9,5 +9,6 @@ namespace IS.Core.Factories
         where TData : IItemData
     {
         T Create<T>(TData data, Transform parent) where T : TItem;
+        T Create<T>(IRuntimeItemData<TData> runtimeData, Transform parent) where T : TItem;
     }
 }

@@ -20,7 +20,7 @@ namespace IS.Core.Views
 
         private void RequestUse()
         {
-            Debug.Log($"Request to use item: {_data.itemName}");
+            Debug.Log($"Request to use item: {_runtimeData.data.itemName}");
         }
     }
 }

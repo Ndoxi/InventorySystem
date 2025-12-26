@@ -8,6 +8,6 @@ namespace IS.Data
         string itemName { get; }
         Sprite icon { get; }
         string description { get; }
-        IItem ToRuntime();
+        IItem ToRuntimeItem();
     }
 }

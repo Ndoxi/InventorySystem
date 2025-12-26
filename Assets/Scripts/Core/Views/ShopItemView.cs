@@ -22,7 +22,7 @@ namespace IS.Core.Views
 
         private void RequestBuy()
         {
-            Debug.Log($"Request to buy item: {_data.itemName} for {_data.price}");
+            Debug.Log($"Request to buy item: {_runtimeData.data.itemName} for {_runtimeData.data.price}");
         }
     }
 }

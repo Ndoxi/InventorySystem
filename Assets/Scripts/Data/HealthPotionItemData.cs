@@ -8,7 +8,7 @@ namespace IS.Data
     {
         [SerializeField] private float _healingAmount;
 
-        public override IItem ToRuntime()
+        public override IItem ToRuntimeItem()
         {
             return new PotionItem(_healingAmount);
         }

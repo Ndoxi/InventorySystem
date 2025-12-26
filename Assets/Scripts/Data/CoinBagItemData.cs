@@ -8,7 +8,7 @@ namespace IS.Data
     {
         [SerializeField] private int _amount;
 
-        public override IItem ToRuntime()
+        public override IItem ToRuntimeItem()
         {
             return new CoinBagItem(_amount);
         }

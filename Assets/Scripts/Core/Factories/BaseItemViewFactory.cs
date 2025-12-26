@@ -12,8 +12,13 @@ namespace IS.Core.Factories
 
         public T Create<T>(TData data, Transform parent) where T : TItem
         {
+            return Create<T>(new RuntimeItemData<TData>(data), parent);
+        }
+
+        public T Create<T>(IRuntimeItemData<TData> runtimeData, Transform parent) where T : TItem
+        {
             var view = Object.Instantiate(_prefab, parent);
-            view.Init(data);
+            view.Init(runtimeData);
             return view as T;
         }
     }

@@ -9,7 +9,7 @@ namespace IS.Core.Views
     {
         public event Action exitRequested;
 
-        [SerializeField] ShopGridView _shopGridView;
+        [SerializeField] private ShopGridView _shopGridView;
         [SerializeField] private Button _exitButton;
 
         private void OnEnable()
@@ -22,7 +22,7 @@ namespace IS.Core.Views
             _exitButton.onClick.RemoveListener(CloseView);
         }
 
-        public void Init(ShopItemData[] datas)
+        public void Init(IRuntimeItemData<ShopItemData>[] datas)
         {
             _shopGridView.Init(datas);
         }

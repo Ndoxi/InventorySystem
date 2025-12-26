@@ -1,4 +1,5 @@
 using IS.Core.Gameplay.Items;
+using System.Linq.Expressions;
 using UnityEngine;
 
 namespace IS.Data
@@ -14,9 +15,9 @@ namespace IS.Data
         [SerializeField] private ItemData _item;
         [SerializeField] private int _price;
 
-        public IItem ToRuntime()
+        public IItem ToRuntimeItem()
         {
-            return _item.ToRuntime();
+            return _item.ToRuntimeItem();
         }
     }
 }
