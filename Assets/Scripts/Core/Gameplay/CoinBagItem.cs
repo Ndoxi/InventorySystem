@@ -1,3 +1,5 @@
+using IS.Core.Models;
+using IS.Infrastracture;
 using UnityEngine;
 
 namespace IS.Core.Gameplay.Items
@@ -13,6 +15,9 @@ namespace IS.Core.Gameplay.Items
 
         public void Use()
         {
+            var currency = ServiceLocator.Resolve<ICurrencyModel>();
+            currency.Add(_amount);
+
             Debug.Log($"Used a coin bag with {_amount} coins.");
         }
     }
