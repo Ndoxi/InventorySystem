@@ -11,6 +11,7 @@ namespace IS.Services
         event Action<IRuntimeItemData<ItemData>> itemRemoved;
         IReadOnlyList<IRuntimeItemData<ItemData>> items { get; }
         void Add(IRuntimeItemData<ItemData> runtimeItemData);
+        void Use(IRuntimeItemData<ItemData> runtimeItemData);
         void Remove(IRuntimeItemData<ItemData> runtimeItemData);
     }
 }

@@ -1,4 +1,6 @@
+using IS.Core.Gameplay.Items;
 using IS.Core.Models;
+using IS.Core.Popups;
 using IS.Core.Views;
 using IS.Data;
 using IS.Infrastracture;
@@ -65,7 +67,14 @@ namespace IS.Core.Mediators
 
         private void PromptItemUsage(IRuntimeItemData<ItemData> runtimeItemData)
         {
-            var popup = _popupRouter.Open<>();
+            var popup = _popupRouter.Open<PromptItemUsagePopup>();
+            popup.Init(runtimeItemData, UseItem);
+        }
+
+        private void UseItem(IRuntimeItemData<ItemData> runtimeItemData)
+        {
+            _model.Use(runtimeItemData);
+            _model.Remove(runtimeItemData);
         }
     }
 }

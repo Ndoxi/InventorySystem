@@ -21,5 +21,10 @@ namespace IS.Core.Views
         {
             Destroy(gameObject);
         }
+
+        protected void Close()
+        {
+            _popupRouter.Close(this);
+        }
     }
 }
