@@ -4,6 +4,7 @@ namespace IS.Infrastracture
 {
     public class MainSceneInstaller : SceneInstaller, IContextInitializer
     {
+        [Header("Canvases")]
         [SerializeField] private Canvas _viewCanvas;
         [SerializeField] private Canvas _popupCanvas;
 

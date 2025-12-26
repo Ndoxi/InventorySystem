@@ -17,7 +17,6 @@ namespace IS.Infrastracture
         {
             ServiceLocator.Register<IConfigProvider>(new ConfigProvider(_scriptableObjectsProviderConfig.configs));
             ServiceLocator.Register<ISceneLoader>(new SceneLoader());
-
         }
 
         public void Uninstall()

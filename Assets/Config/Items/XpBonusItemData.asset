@@ -9,8 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 79629428e347d1c48b4e6cecb33da1a6, type: 3}
-  m_Name: PotionShopItemData
+  m_Script: {fileID: 11500000, guid: 204942fe55ec19b4fab1a368d7aa41f8, type: 3}
+  m_Name: XpBonusItemData
   m_EditorClassIdentifier: 
-  _item: {fileID: 11400000, guid: 24c125e3fca477a4fafe448b54064fc9, type: 2}
-  _price: 3
+  _itemName: XP Bonus
+  _icon: {fileID: 21300106, guid: 1eaee135ce037439d925cee5e41ce026, type: 3}
+  _description: Grants extra 2 experience from each hit
+  bonus: 2

@@ -9,8 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 79629428e347d1c48b4e6cecb33da1a6, type: 3}
-  m_Name: MockShopItemData
+  m_Script: {fileID: 11500000, guid: 72a2a2fdeb0d58f49afb400bbc96f29d, type: 3}
+  m_Name: RewardSystemConfig
   m_EditorClassIdentifier: 
-  _item: {fileID: 11400000, guid: 411372c60c679834c87a1a54826e8f9c, type: 2}
-  _price: 1
+  _rewardLevelMultiplier: 3

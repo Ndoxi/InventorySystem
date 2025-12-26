@@ -24,6 +24,7 @@ namespace IS.Infrastracture
         {
             InstallServices();
             InstallFactories();
+            InstallSystems();
             InstallRouters();
             InstallModels();
         }
@@ -41,6 +42,14 @@ namespace IS.Infrastracture
             ServiceLocator.Register<IViewFactory<Popup>>(new PopupFactory(_popupCanvas));
         }
 
+
+        private void InstallSystems()
+        {
+            ServiceLocator.Register<ILevelingSystem>(new LevelingSystem());
+            ServiceLocator.Register<IRewardSystem>(new RewardSystem());
+            ServiceLocator.Register<IAttackSystem>(new AttackSystem());
+        }
+
         private void InstallRouters()
         {
             ServiceLocator.Register<IViewRouter>(new ViewRouter());
@@ -55,6 +64,9 @@ namespace IS.Infrastracture
         public void Uninstall()
         {
             ServiceLocator.Unregister<IInventoryService>();
+            ServiceLocator.Unregister<ILevelingSystem>();
+            ServiceLocator.Unregister<IRewardSystem>();
+            ServiceLocator.Unregister<IAttackSystem>();
             ServiceLocator.Unregister<IItemViewFactory<InventoryItemView, ItemData>>();
             ServiceLocator.Unregister<IItemViewFactory<ShopItemView, ShopItemData>>();
             ServiceLocator.Unregister<IViewFactory<View>>();
