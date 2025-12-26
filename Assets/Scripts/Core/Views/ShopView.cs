@@ -1,35 +1,40 @@
 using IS.Data;
 using System;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace IS.Core.Views
 {
-    public class ShopView : View 
+    public class ShopView : InventoryView
     {
-        public event Action exitRequested;
+        public event Action<IRuntimeItemData<ShopItemData>> buyRequested;
 
         [SerializeField] private ShopGridView _shopGridView;
-        [SerializeField] private Button _exitButton;
 
-        private void OnEnable()
+        protected override void OnEnable()
         {
-            _exitButton.onClick.AddListener(CloseView);
+            base.OnEnable();
+            _shopGridView.buyRequested += RequestBuy;
         }
 
-        private void OnDisable()
+        protected override void OnDisable()
         {
-            _exitButton.onClick.RemoveListener(CloseView);
+            base.OnDisable();
+            _shopGridView.buyRequested -= RequestBuy;
         }
 
-        public void Init(IRuntimeItemData<ShopItemData>[] datas)
+        public override void Init(IRuntimeItemData<ShopItemData>[] datas)
         {
             _shopGridView.Init(datas);
         }
 
-        private void CloseView()
+        public override void Remove(IRuntimeItemData<ShopItemData> data)
         {
-            exitRequested?.Invoke();
+            _shopGridView.Remove(data);
+        }
+
+        private void RequestBuy(IRuntimeItemData<ShopItemData> data)
+        {
+            buyRequested?.Invoke(data);
         }
     }
 }

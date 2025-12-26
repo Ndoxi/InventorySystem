@@ -8,15 +8,17 @@ using UnityEngine;
 
 namespace IS.Core.Views
 {
-    public class GridView<TData> : MonoBehaviour where TData : IItemData
+    public class GridView<TView, TData> : MonoBehaviour 
+        where TView : ItemView<TData> 
+        where TData : IItemData
     {
         [SerializeField] private RectTransform _content;
-        private Dictionary<Guid, ItemView<TData>> _views = new ();
-        private IItemViewFactory<ItemView<TData>, TData> _factory;
+        private Dictionary<Guid, TView> _views = new ();
+        private IItemViewFactory<TView, TData> _factory;
 
         public void Init(IRuntimeItemData<TData>[] datas)
         {
-            _factory = ServiceLocator.Resolve<IItemViewFactory<ItemView<TData>, TData>>();
+            _factory = ServiceLocator.Resolve<IItemViewFactory<TView, TData>>();
 
             foreach (var data in datas)
             {
@@ -26,17 +28,22 @@ namespace IS.Core.Views
 
         public void Add(IRuntimeItemData<TData> data)
         {
-            var view = _factory.Create<ItemView<TData>>(data, _content);
+            var view = _factory.Create<TView>(data, _content);
             _views.Add(data.instanceId, view);
+            RegistedView(view);
         }
 
         public void Remove(IRuntimeItemData<TData> data)
         {
             if (_views.TryGetValue(data.instanceId, out var view))
             {
-                Destroy(view.gameObject);
+                UnregistedView(view);
                 _views.Remove(data.instanceId);
+                Destroy(view.gameObject);
             }
         }
+
+        protected virtual void RegistedView(TView view) { }
+        protected virtual void UnregistedView(TView view) { }
     }
 }

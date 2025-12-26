@@ -34,7 +34,7 @@ namespace IS.Core.Mediators
 
         private void ShowInventory()
         {
-            _viewRouter.Open<InventoryView>();
+            _viewRouter.Open<PlayerInventoryView>();
         }
     }
 }

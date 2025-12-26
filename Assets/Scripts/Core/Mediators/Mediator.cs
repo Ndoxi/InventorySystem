@@ -16,5 +16,20 @@ namespace IS.Core.Mediators
                 throw new ArgumentNullException(nameof(_view));
         }
     }
+
+    public abstract class Mediator<TView, TModel> : MonoBehaviour where TView : View
+    {
+        protected TView _view;
+
+        private void Awake()
+        {
+            _view = GetComponent<TView>();
+
+            if (_view == null)
+                throw new ArgumentNullException(nameof(_view));
+        }
+
+        public abstract void Install(TModel model);
+    }
 }
 

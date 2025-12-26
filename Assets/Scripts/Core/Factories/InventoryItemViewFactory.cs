@@ -5,9 +5,9 @@ using IS.Infrastracture;
 
 namespace IS.Core.Factories
 {
-    public class InventoryItemViewFactory : BaseItemViewFactory<ItemView<ItemData>, ItemData>
+    public class InventoryItemViewFactory : BaseItemViewFactory<InventoryItemView, ItemData>
     {
-        protected override ItemView<ItemData> _prefab { get; }
+        protected override InventoryItemView _prefab { get; }
 
         public InventoryItemViewFactory() 
         {

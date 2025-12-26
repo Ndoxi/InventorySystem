@@ -5,9 +5,9 @@ using IS.Infrastracture;
 
 namespace IS.Core.Factories
 {
-    public class ShopItemViewFactory : BaseItemViewFactory<ItemView<ShopItemData>, ShopItemData>
+    public class ShopItemViewFactory : BaseItemViewFactory<ShopItemView, ShopItemData>
     {
-        protected override ItemView<ShopItemData> _prefab { get; }
+        protected override ShopItemView _prefab { get; }
 
         public ShopItemViewFactory()
         {

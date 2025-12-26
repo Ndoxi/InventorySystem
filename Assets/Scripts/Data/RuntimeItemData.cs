@@ -9,7 +9,7 @@ namespace IS.Data
 
         public RuntimeItemData(T data)
         {
-            instanceId = new Guid();
+            instanceId = Guid.NewGuid();
             this.data = data;
         }
     }

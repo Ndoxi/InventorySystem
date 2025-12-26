@@ -222,6 +222,8 @@ GameObject:
   - component: {fileID: 796047761157401167}
   - component: {fileID: 8184077808268591666}
   - component: {fileID: 4210369683396305851}
+  - component: {fileID: 8995531642156602255}
+  - component: {fileID: 8692763759222533353}
   m_Layer: 5
   m_Name: ShopView
   m_TagString: Untagged
@@ -276,6 +278,30 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dfca6175d506f1542aef8cf99063ad52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8995531642156602255
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7831804598275209383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77d80730067542e4ab669e015047f58c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8692763759222533353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7831804598275209383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2f6cf3663310f34cad2c80c579dd08e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &1238397946628862854
