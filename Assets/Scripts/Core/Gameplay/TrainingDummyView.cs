@@ -12,6 +12,7 @@ namespace IS.Core.Gameplay
         public event Action clicked;
 
         [SerializeField] private Clickable _clickable;
+        [SerializeField] private ParticleSystem _hitEffectPS;
         [SerializeField] private Animator _animator;
 
         private void OnEnable()
@@ -31,6 +32,7 @@ namespace IS.Core.Gameplay
 
         public void OnHit()
         {
+            _hitEffectPS.Emit(1);
             _animator.SetTrigger(HitTriggerHash);
             hit?.Invoke();
         }
