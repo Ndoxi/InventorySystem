@@ -9,6 +9,7 @@ namespace IS.Services
     {
         public event Action<int> levelUpdated;
         public event Action<int> xpUpdated;
+        public event Action<int> xpGained;
 
         public int currentLevel { get; private set; }
         public int currentXp { get; private set; }
@@ -29,6 +30,9 @@ namespace IS.Services
         public void AddXp(int amount)
         {
             currentXp += amount + _xpBonus;
+            xpGained?.Invoke(amount);
+            if (_xpBonus > 0)
+                xpGained?.Invoke(_xpBonus);
             xpUpdated?.Invoke(currentXp);
 
             if (currentXp >= nextLevelXp)

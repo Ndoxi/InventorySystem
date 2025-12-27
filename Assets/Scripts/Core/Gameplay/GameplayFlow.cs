@@ -1,15 +1,18 @@
 using IS.Core.Models;
+using IS.Core.Views;
 using IS.Infrastracture;
 using IS.Services;
 using UnityEngine;
 
 namespace IS.Core.Gameplay
 {
-    public class GameplayWeaver : MonoBehaviour
+    public class GameplayFlow : MonoBehaviour
     {
-        private const int XpPerHit = 1;
+        private const int BaseXpPerHit = 1;
 
         [SerializeField] private TrainingDummyView _trainingDummy;
+        [SerializeField] private XpParticleSystem _xpParticleSystem;
+
         private IAttackSystem _attackSystem;
         private ILevelingSystem _levelingSystem;
         private IRewardSystem _rewardSystem;
@@ -28,6 +31,7 @@ namespace IS.Core.Gameplay
             _trainingDummy.clicked += AttackDummy;
             _trainingDummy.hit += OnHit;
             _levelingSystem.levelUpdated += OnLevelUp;
+            _levelingSystem.xpGained += EmitXpParticle;
         }
 
         private void OnDisable()
@@ -35,6 +39,7 @@ namespace IS.Core.Gameplay
             _trainingDummy.clicked -= AttackDummy;
             _trainingDummy.hit -= OnHit;
             _levelingSystem.levelUpdated -= OnLevelUp;
+            _levelingSystem.xpGained -= EmitXpParticle;
         }
 
         private void OnLevelUp(int level)
@@ -50,7 +55,12 @@ namespace IS.Core.Gameplay
 
         private void OnHit()
         {
-            _levelingSystem.AddXp(XpPerHit);
+            _levelingSystem.AddXp(BaseXpPerHit);
         }
+
+        private void EmitXpParticle(int xp)
+        {
+            _xpParticleSystem.Emit(xp);
+        } 
     }
 }

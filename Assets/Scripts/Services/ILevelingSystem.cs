@@ -6,6 +6,7 @@ namespace IS.Services
     {
         event Action<int> levelUpdated;
         event Action<int> xpUpdated;
+        event Action<int> xpGained;
 
         int currentLevel { get; }
         int currentXp { get; }
